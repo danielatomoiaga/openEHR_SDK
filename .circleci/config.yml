@@ -939,9 +939,9 @@ commands:
   cache-in-ehrbase-m2-dependencies:
     steps:
       - save_cache:
-          key: EHRbase-{{ checksum "/tmp/EHRbase_maven_cache_seed" }}
+          key: EHRbase-v1-{{ checksum "/tmp/EHRbase_maven_cache_seed" }}
           paths:
-            - ~/.m2
+            - ~/.m2/repository/org/ehrbase/openehr/
 
 
   cache-out-ehrbase-m2-dependencies:
@@ -950,7 +950,7 @@ commands:
           name: Generate Cache Checksum for EHRbase Dependencies
           command: find ~/projects/ehrbase -name 'pom.xml' | sort | xargs cat > /tmp/EHRbase_maven_cache_seed
       - restore_cache:
-          key: EHRbase-
+          key: EHRbase-v1
 
 
   save-ehrbase-workspace:
