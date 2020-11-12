@@ -19,7 +19,7 @@
 
 package org.ehrbase.webtemplate.templateprovider;
 
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.parser.OPTParser;
 import org.openehr.schemas.v1.OPERATIONALTEMPLATE;
 
@@ -29,7 +29,7 @@ public interface TemplateProvider {
 
     Optional<OPERATIONALTEMPLATE> find(String templateId);
 
-    default Optional<WebTemplate> buildIntrospect(String templateId) {
+    default Optional<WebTemplate2> buildIntrospect(String templateId) {
         return find(templateId).map(t -> new OPTParser(t).parse());
     }
 }

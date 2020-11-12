@@ -24,7 +24,7 @@ import com.nedap.archie.rminfo.RMTypeInfo;
 import org.apache.commons.collections4.SetUtils;
 import org.ehrbase.serialisation.util.SnakeCase;
 import org.ehrbase.util.reflection.ReflectionHelper;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.model.WebTemplateNode;
 import org.ehrbase.webtemplate.parser.OPTParser;
 import org.ehrbase.webtemplate.parser.config.RmIntrospectConfig;
@@ -41,15 +41,15 @@ public class Filter {
     private static final Map<Class<?>, RmIntrospectConfig> configMap = ReflectionHelper.buildMap(RmIntrospectConfig.class);
     public static final ArchieRMInfoLookup ARCHIE_RM_INFO_LOOKUP = ArchieRMInfoLookup.getInstance();
 
-    public WebTemplate filter(WebTemplate webTemplate) {
-        WebTemplate clone = new WebTemplate(webTemplate);
+    public WebTemplate2 filter(WebTemplate2 webTemplate) {
+        WebTemplate2 clone = new WebTemplate2(webTemplate);
         List<WebTemplateNode> filteredChildren = filter(clone.getTree(), webTemplate, null);
         clone.setTree(filteredChildren.get(0));
 
         return clone;
     }
 
-    private List<WebTemplateNode> filter(WebTemplateNode node, WebTemplate context, WebTemplateNode parent) {
+    private List<WebTemplateNode> filter(WebTemplateNode node, WebTemplate2 context, WebTemplateNode parent) {
         List<WebTemplateNode> nodes;
         List<WebTemplateNode> ismTransitionList = node.getChildren().stream()
                 .filter(n -> "ISM_TRANSITION".equals(n.getRmType()))
@@ -78,7 +78,7 @@ public class Filter {
         return nodes;
     }
 
-    private boolean skip(WebTemplateNode node, WebTemplate context, WebTemplateNode parent) {
+    private boolean skip(WebTemplateNode node, WebTemplate2 context, WebTemplateNode parent) {
         if (List.of("origin", "participations", "location", "feeder_audit").contains(node.getName())) {
             return true;
         }

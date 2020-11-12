@@ -27,13 +27,13 @@ import org.ehrbase.serialisation.flatencoding.std.marshal.FlatJsonMarshaller;
 import org.ehrbase.serialisation.flatencoding.std.umarshal.FlatJsonUnmarshaller;
 import org.ehrbase.util.exception.SdkException;
 import org.ehrbase.webtemplate.filter.Filter;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.openehr.schemas.v1.OPERATIONALTEMPLATE;
 
 public class FlatJson implements RMDataFormat {
 
     private final OPERATIONALTEMPLATE operationaltemplate;
-    private final WebTemplate templateIntrospect;
+    private final WebTemplate2 templateIntrospect;
     private final FlatJsonMarshaller flatJsonMarshaller;
     private final FlatJsonUnmarshaller flatJsonUnmarshaller;
 

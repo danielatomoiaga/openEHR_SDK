@@ -29,7 +29,7 @@ import org.ehrbase.test_data.composition.CompositionTestDataSimSDTJson;
 import org.ehrbase.test_data.operationaltemplate.OperationalTemplateTestData;
 import org.ehrbase.validation.Validator;
 import org.ehrbase.webtemplate.filter.Filter;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.parser.OPTParser;
 import org.junit.Assert;
 import org.junit.Test;
@@ -47,7 +47,7 @@ public class FlatJsonUnmarshallerTest {
     @Test
     public void unmarshal() throws IOException, XmlException {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.CORONA_ANAMNESE.getStream()).getTemplate();
-        WebTemplate webTemplate = new Filter().filter(new OPTParser(template).parse());
+        WebTemplate2 webTemplate = new Filter().filter(new OPTParser(template).parse());
 
         FlatJsonUnmarshaller cut = new FlatJsonUnmarshaller();
 
@@ -73,7 +73,7 @@ public class FlatJsonUnmarshallerTest {
     @Test
     public void unmarshalMulti() throws IOException, XmlException {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.MULTI_OCCURRENCE.getStream()).getTemplate();
-        WebTemplate webTemplate = new Filter().filter(new OPTParser(template).parse());
+        WebTemplate2 webTemplate = new Filter().filter(new OPTParser(template).parse());
 
         FlatJsonUnmarshaller cut = new FlatJsonUnmarshaller();
 
@@ -95,7 +95,7 @@ public class FlatJsonUnmarshallerTest {
     @Test
     public void unmarshalAlt() throws IOException, XmlException {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.ALT_EVENTS.getStream()).getTemplate();
-        WebTemplate webTemplate = new Filter().filter(new OPTParser(template).parse());
+        WebTemplate2 webTemplate = new Filter().filter(new OPTParser(template).parse());
 
         FlatJsonUnmarshaller cut = new FlatJsonUnmarshaller();
 
@@ -116,7 +116,7 @@ public class FlatJsonUnmarshallerTest {
     @Test
     public void unmarshalAllTypes() throws IOException, XmlException {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.ALL_TYPES.getStream()).getTemplate();
-        WebTemplate webTemplate = new Filter().filter(new OPTParser(template).parse());
+        WebTemplate2 webTemplate = new Filter().filter(new OPTParser(template).parse());
 
         FlatJsonUnmarshaller cut = new FlatJsonUnmarshaller();
 

@@ -30,7 +30,7 @@ import org.ehrbase.serialisation.flatencoding.std.marshal.postprocessor.MarshalP
 import org.ehrbase.serialisation.jsonencoding.JacksonUtil;
 import org.ehrbase.util.reflection.ReflectionHelper;
 import org.ehrbase.webtemplate.filter.Filter;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -53,7 +53,7 @@ public class FlatJsonMarshaller {
      * @param composition
      * @return
      */
-    public String toFlatJson(Composition composition, WebTemplate webTemplate) {
+    public String toFlatJson(Composition composition, WebTemplate2 webTemplate) {
 
         Map<String, Object> result = new LinkedHashMap<>();
 

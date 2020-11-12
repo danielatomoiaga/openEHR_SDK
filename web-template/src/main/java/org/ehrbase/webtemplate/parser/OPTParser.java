@@ -30,7 +30,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.ehrbase.terminology.client.terminology.TermDefinition;
 import org.ehrbase.terminology.client.terminology.TerminologyProvider;
 import org.ehrbase.terminology.client.terminology.ValueSet;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.model.WebTemplateInput;
 import org.ehrbase.webtemplate.model.WebTemplateInputValue;
 import org.ehrbase.webtemplate.model.WebTemplateNode;
@@ -72,8 +72,8 @@ public class OPTParser {
         defaultLanguage = operationaltemplate.getLanguage().getCodeString();
     }
 
-    public WebTemplate parse() {
-        WebTemplate webTemplate = new WebTemplate();
+    public WebTemplate2 parse() {
+        WebTemplate2 webTemplate = new WebTemplate2();
 
         webTemplate.setTemplateId(operationaltemplate.getTemplateId().getValue());
         webTemplate.setDefaultLanguage(defaultLanguage);

@@ -27,7 +27,7 @@ import org.ehrbase.building.OptSkeletonBuilder;
 import org.ehrbase.normalizer.Normalizer;
 import org.ehrbase.serialisation.exception.UnmarshalException;
 import org.ehrbase.serialisation.jsonencoding.JacksonUtil;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.openehr.schemas.v1.OPERATIONALTEMPLATE;
 
 import java.util.Collections;
@@ -57,7 +57,7 @@ public class FlatJsonUnmarshaller {
      * @param operationalTemplate the template of the flat json
      * @return
      */
-    public Composition unmarshal(String flat, WebTemplate introspect, OPERATIONALTEMPLATE operationalTemplate) {
+    public Composition unmarshal(String flat, WebTemplate2 introspect, OPERATIONALTEMPLATE operationalTemplate) {
 
         consumedPath = new HashSet<>();
 

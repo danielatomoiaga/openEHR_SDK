@@ -46,7 +46,7 @@ public class WebTemplateTest {
     @Test
     public void testCanParseFromFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        WebTemplate actual = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.CORONA.getStream(), StandardCharsets.UTF_8), WebTemplate.class);
+        WebTemplate2 actual = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.CORONA.getStream(), StandardCharsets.UTF_8), WebTemplate2.class);
         assertThat(actual).isNotNull();
     }
 
@@ -55,7 +55,7 @@ public class WebTemplateTest {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.CORONA_ANAMNESE.getStream()).getTemplate();
 
         OPTParser cut = new OPTParser(template);
-        WebTemplate actual = cut.parse();
+        WebTemplate2 actual = cut.parse();
 
         Assertions.assertThat(actual.findByAqlPath("/content[openEHR-EHR-SECTION.adhoc.v1 and name/value='Symptome']").isPresent()).isTrue();
         Assertions.assertThat(actual.findByAqlPath("/content[openEHR-EHR-SECTION.adhoc.v1]").isPresent()).isTrue();

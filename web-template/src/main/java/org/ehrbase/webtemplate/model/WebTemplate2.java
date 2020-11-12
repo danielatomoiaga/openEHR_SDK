@@ -31,7 +31,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class WebTemplate implements Serializable {
+public class WebTemplate2 implements Serializable {
 
     private String templateId;
     private String version;
@@ -39,10 +39,10 @@ public class WebTemplate implements Serializable {
     private final List<String> languages = new ArrayList<>();
     private WebTemplateNode tree;
 
-    public WebTemplate() {
+    public WebTemplate2() {
     }
 
-    public WebTemplate(WebTemplate other) {
+    public WebTemplate2(WebTemplate2 other) {
         this.templateId = other.templateId;
         this.version = other.version;
         this.defaultLanguage = other.defaultLanguage;
@@ -151,7 +151,7 @@ public class WebTemplate implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        WebTemplate that = (WebTemplate) o;
+        WebTemplate2 that = (WebTemplate2) o;
         return Objects.equals(templateId, that.templateId) &&
                 Objects.equals(version, that.version) &&
                 Objects.equals(defaultLanguage, that.defaultLanguage) &&

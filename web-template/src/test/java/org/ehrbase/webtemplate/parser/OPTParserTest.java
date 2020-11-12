@@ -27,7 +27,7 @@ import org.assertj.core.groups.Tuple;
 import org.ehrbase.test_data.operationaltemplate.OperationalTemplateTestData;
 import org.ehrbase.test_data.webtemplate.WebTemplateTestData;
 import org.ehrbase.webtemplate.filter.Filter;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.model.WebTemplateInput;
 import org.ehrbase.webtemplate.model.WebTemplateInputValue;
 import org.ehrbase.webtemplate.model.WebTemplateNode;
@@ -52,12 +52,12 @@ public class OPTParserTest {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.CORONA_ANAMNESE.getStream()).getTemplate();
 
         OPTParser cut = new OPTParser(template);
-        WebTemplate actual = cut.parse();
+        WebTemplate2 actual = cut.parse();
         actual = new Filter().filter(actual);
         assertThat(actual).isNotNull();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        WebTemplate expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.CORONA.getStream(), StandardCharsets.UTF_8), WebTemplate.class);
+        WebTemplate2 expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.CORONA.getStream(), StandardCharsets.UTF_8), WebTemplate2.class);
 
 
         List<String> errors = compareWebTemplate(actual, expected);
@@ -85,12 +85,12 @@ public class OPTParserTest {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.ALT_EVENTS.getStream()).getTemplate();
 
         OPTParser cut = new OPTParser(template);
-        WebTemplate actual = cut.parse();
+        WebTemplate2 actual = cut.parse();
         actual = new Filter().filter(actual);
         assertThat(actual).isNotNull();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        WebTemplate expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.ALTERNATIVE_EVENTS.getStream(), StandardCharsets.UTF_8), WebTemplate.class);
+        WebTemplate2 expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.ALTERNATIVE_EVENTS.getStream(), StandardCharsets.UTF_8), WebTemplate2.class);
 
 
         List<String> errors = compareWebTemplate(actual, expected);
@@ -115,12 +115,12 @@ public class OPTParserTest {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.MULTI_OCCURRENCE.getStream()).getTemplate();
 
         OPTParser cut = new OPTParser(template);
-        WebTemplate actual = cut.parse();
+        WebTemplate2 actual = cut.parse();
         actual = new Filter().filter(actual);
         assertThat(actual).isNotNull();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        WebTemplate expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.MULTI_OCCURRENCE.getStream(), StandardCharsets.UTF_8), WebTemplate.class);
+        WebTemplate2 expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.MULTI_OCCURRENCE.getStream(), StandardCharsets.UTF_8), WebTemplate2.class);
 
 
         List<String> errors = compareWebTemplate(actual, expected);
@@ -145,12 +145,12 @@ public class OPTParserTest {
         OPERATIONALTEMPLATE template = TemplateDocument.Factory.parse(OperationalTemplateTestData.ALL_TYPES.getStream()).getTemplate();
 
         OPTParser cut = new OPTParser(template);
-        WebTemplate actual = cut.parse();
+        WebTemplate2 actual = cut.parse();
         actual = new Filter().filter(actual);
         assertThat(actual).isNotNull();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        WebTemplate expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.ALL_TYPES.getStream(), StandardCharsets.UTF_8), WebTemplate.class);
+        WebTemplate2 expected = objectMapper.readValue(IOUtils.toString(WebTemplateTestData.ALL_TYPES.getStream(), StandardCharsets.UTF_8), WebTemplate2.class);
 
         List<WebTemplateNode> dvOrdinalList = actual.getTree().findMatching(n -> n.getRmType().equals("DV_ORDINAL"));
         assertThat(dvOrdinalList).size().isEqualTo(1);
@@ -205,7 +205,7 @@ public class OPTParserTest {
                 );
     }
 
-    public List<String> compareWebTemplate(WebTemplate actual, WebTemplate expected) {
+    public List<String> compareWebTemplate(WebTemplate2 actual, WebTemplate2 expected) {
         List<String> errors = new ArrayList<>();
         errors.addAll(compareNode(actual.getTree(), expected.getTree()));
         return errors;

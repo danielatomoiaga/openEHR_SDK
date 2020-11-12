@@ -33,7 +33,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ehrbase.serialisation.jsonencoding.CanonicalJson;
 import org.ehrbase.util.exception.SdkException;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.model.WebTemplateInput;
 import org.ehrbase.webtemplate.model.WebTemplateNode;
 import org.ehrbase.webtemplate.parser.FlatPath;
@@ -48,7 +48,7 @@ public abstract class Walker<T> {
 
     public static final ArchieRMInfoLookup ARCHIE_RM_INFO_LOOKUP = ArchieRMInfoLookup.getInstance();
 
-    public void walk(Composition composition, T object, WebTemplate webTemplate) {
+    public void walk(Composition composition, T object, WebTemplate2 webTemplate) {
 
         Context<T> context = new Context<>();
 

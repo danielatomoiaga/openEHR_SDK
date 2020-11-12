@@ -29,7 +29,7 @@ import org.ehrbase.serialisation.flatencoding.std.umarshal.rmunmarshaller.RMUnma
 import org.ehrbase.serialisation.walker.Context;
 import org.ehrbase.serialisation.walker.ToCompositionWalker;
 import org.ehrbase.util.reflection.ReflectionHelper;
-import org.ehrbase.webtemplate.model.WebTemplate;
+import org.ehrbase.webtemplate.model.WebTemplate2;
 import org.ehrbase.webtemplate.model.WebTemplateNode;
 
 import java.util.Collections;
@@ -51,7 +51,7 @@ public class StdToCompositionWalker extends ToCompositionWalker<Map<String, Stri
     private Set<String> consumedPaths;
 
     @Override
-    public void walk(Composition composition, Map<String, String> object, WebTemplate webTemplate) {
+    public void walk(Composition composition, Map<String, String> object, WebTemplate2 webTemplate) {
         consumedPaths = new HashSet<>();
         super.walk(composition, object, webTemplate);
     }
