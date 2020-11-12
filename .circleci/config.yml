@@ -819,15 +819,15 @@ commands:
     steps:
       - run:
           name: Generate Cache Checksum for openEHR_SDK Dependencies
-          command: find . -name 'pom.xml' | sort | xargs cat > /tmp/openEHR_SDK_maven_cache_seed
+          command: find . -type f -name *.java | sort | xargs cat > /tmp/openEHR_SDK_maven_cache_seed
       - restore_cache:
-          key: openEHR_SDK-
+          key: openEHR_SDK-v1
 
 
   cache-in-sdk-m2-dependencies:
     steps:
       - save_cache:
-          key: openEHR_SDK-{{ checksum "/tmp/openEHR_SDK_maven_cache_seed" }}
+          key: openEHR_SDK-v1-{{ checksum "/tmp/openEHR_SDK_maven_cache_seed" }}
           paths:
           - ~/.m2
 
